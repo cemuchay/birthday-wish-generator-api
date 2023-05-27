@@ -29,7 +29,11 @@ app.get("/", (req, res) => {
    res.send("Hello, TypeScript Express!");
 });
 
-app.get("/generate-wish", generateWishRequest);
+// Version 1 routes
+const v1Router = express.Router();
+app.use('/v1', v1Router);
+
+v1Router.get("/generate-wish", generateWishRequest);
 
 app.get('/hello', (req: Request, res: Response) => {
     res.customResponse = {
