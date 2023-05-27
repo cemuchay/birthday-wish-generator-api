@@ -1,8 +1,6 @@
 const generateWish = (name?: string, sender?: string) => {
    let wish = wishes[Math.floor(Math.random() * wishes.length)];
 
-   console.log(name, sender);
-
    //change all name to small caps
    wish = wish.replace("NAME", capitalizeFistLetter(name as string) || "");
    wish = wish.replace("Sender", capitalizeFistLetter(sender as string) || "");
@@ -13,6 +11,7 @@ const generateWish = (name?: string, sender?: string) => {
 export default generateWish;
 
 const capitalizeFistLetter = (str: string) => {
+    if (str === undefined) return "";
    const capitalizedStr = str.charAt(0).toUpperCase() + str.slice(1);
    return capitalizedStr;
 };
